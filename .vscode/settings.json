@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  // "nixEnvSelector.args": "--pure"
+
+  "haskell.formattingProvider": "fourmolu",
+  "haskell.manageHLS": "PATH",
+  "[haskell]": {
+    "editor.tabSize": 2,
+    "editor.formatOnType": true
+  },
+  "nixEnvSelector.suggestion": false
+}

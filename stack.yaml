@@ -1,0 +1,4 @@
+resolver: lts-19.27
+packages:
+  - .
+local-bin-path: dist

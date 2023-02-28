@@ -1,0 +1,10 @@
+[[commands]]
+package = "devshell.cli"
+help = "Per project developer environments"
+
+[devshell]
+packages = [
+  "stack",
+  "haskell-language-server",
+  "hlint"
+]
