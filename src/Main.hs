@@ -5,7 +5,7 @@ module Init where
 import Data.Aeson (FromJSON (..))
 import Data.Aeson qualified as JSON
 import Data.Aeson.KeyMap (KeyMap, elems)
-import RIO (Either (Left, Right), Eq, FilePath, Generic, IO, LByteString, Maybe (Just, Nothing), String, Text, fmap, writeFileBinary, ($), (++), (<$>))
+import RIO (Either (Left, Right), Eq, FilePath, Generic, IO, LByteString, Maybe (Just, Nothing), Show, String, Text, fmap, writeFileBinary, ($), (++), (<$>))
 import RIO.ByteString qualified as B
 import RIO.ByteString.Lazy qualified as LB
 import RIO.Text (concat)
@@ -26,12 +26,12 @@ data Page = Page
   { url :: !RIO.Text
   , title :: !RIO.Text
   }
-  deriving (RIO.Eq, RIO.Show, RIO.Generic)
+  deriving stock (RIO.Eq, RIO.Show, RIO.Generic)
 
-data ExFile = ExFile
+newtype ExFile = ExFile
   { files :: KeyMap Page
   }
-  deriving (RIO.Eq, RIO.Show, RIO.Generic)
+  deriving stock (RIO.Eq, RIO.Show, RIO.Generic)
 
 instance FromJSON Page where
   parseJSON = JSON.genericParseJSON JSON.defaultOptions
