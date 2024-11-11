@@ -36,7 +36,7 @@
       # Add your package overrides here
       settings = {
         /*
-        haskell-template = {
+        emanote-sitemap-generator = {
           haddock = false;
         };
         aeson = {
@@ -55,7 +55,7 @@
     };
 
     # Default package & app.
-    packages.default = self'.packages.haskell-template;
-    apps.default = self'.apps.haskell-template;
+    packages.default = self'.packages.emanote-sitemap-generator;
+    apps.default = self'.apps.emanote-sitemap-generator;
   };
 }
