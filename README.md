@@ -12,10 +12,10 @@ To start a shell with all the dependencies needed to run this project, just run:
 nix develop
 ```
 
-Now you can use [Stack](https://docs.haskellstack.org/en/stable/) to start an interactive REPL or run the executable:
+## Tips
 
-```sh
-stack repl
-# - OR -
-stack run
-```
+- Run `nix flake update` to update all flake inputs.
+- Run `nix --accept-flake-config run github:juspay/omnix ci` to build _all_ outputs.
+- Run `just fmt` in nix shell to autoformat the project. This uses [treefmt](https://github.com/numtide/treefmt).
+- Run `just docs` to start Hoogle with packages in your cabal file.
+- Run the application without installing: `nix run github:gil0mendes/emanote-sitemap-generator` (or `nix run .` from checkout)
