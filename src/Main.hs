@@ -1,6 +1,6 @@
 {-# LANGUAGE NamedFieldPuns #-}
 
-module Init where
+module Main where
 
 import Data.Aeson (FromJSON (..))
 import Data.Aeson qualified as JSON
@@ -47,7 +47,7 @@ parseData = do
   JSON.eitherDecode RIO.<$> getExportedContent
 
 generateUrl :: Page -> RIO.Text
-generateUrl Page{url} = RIO.Text.concat [baseUrl, url, ".html"]
+generateUrl Page {url} = RIO.Text.concat [baseUrl, url, ".html"]
 
 fromPage :: Page -> SitemapUrl
 fromPage page =
@@ -60,8 +60,8 @@ fromPage page =
 
 generateSitemapXml :: [Page] -> B.ByteString
 generateSitemapXml pages = renderSitemap sitemap
- where
-  sitemap = Sitemap.Sitemap RIO.$ RIO.fmap fromPage pages
+  where
+    sitemap = Sitemap.Sitemap RIO.$ RIO.fmap fromPage pages
 
 writeXmlFile :: B.ByteString -> RIO.IO ()
 writeXmlFile = RIO.writeFileBinary outputFileName
